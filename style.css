@@ -1,0 +1,551 @@
+/*!
+Theme Name: Wp Front
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: wp-front
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+/*------ Reset CSS ------*/
+/*----------------- Animation Starts ---------------*/
+.anim {
+  opacity: 0;
+  -webkit-transition: 0.8s 0.1s cubic-bezier(0.8, 0, 0.4, 1);
+  transition: 0.8s 0.1s cubic-bezier(0.8, 0, 0.4, 1);
+  overflow: hidden;
+}
+.anim.in {
+  opacity: 1;
+}
+.anim.in.toRight {
+  transform: translatex(-60px);
+}
+.anim.in.toLeft {
+  transform: translatex(60px);
+}
+.anim.in.toBottom {
+  transform: translatex(-60px);
+}
+.anim.in.toTop {
+  transform: translatex(60px);
+}
+.anim.in.toRight, .anim.in.toLeft, .anim.in.toBottom, .anim.in.toTop {
+  transform: translate(0);
+  transition: 0.7s all ease;
+}
+
+#sloader {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toBottom {
+  transform: translateY(-32px);
+}
+
+.toTop {
+  transform: translateY(32px);
+}
+
+.toRight {
+  transform: translateX(-64px);
+}
+
+.toLeft {
+  transform: translateX(64px);
+}
+
+.mt16 {
+  margin-top: 16px;
+}
+
+/*----------------- Animation Ends ---------------*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.4;
+  max-width: 100vw;
+}
+
+.site-main {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+#page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+}
+
+.head64, .head56, h1, h2, h3, .h1, .h2, .h3 {
+  font-family: "Playfair Display", serif;
+}
+
+.wrapper {
+  max-width: 100%;
+  padding: 0 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+select, li, footer, header, input, form, textarea, figure {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img.fit {
+  width: 100%;
+  display: block;
+}
+
+img.rounded {
+  border-radius: 50%;
+}
+
+li {
+  list-style-position: inside;
+}
+
+article, picture, aside, main, figure, ul, ol, dl, p, h1, h2, h3, h4, h5, h6, section, form {
+  margin: 0;
+  padding: 0;
+}
+
+address, a {
+  text-decoration: none;
+  font-style: normal;
+}
+
+a, span, label {
+  display: inline-block;
+}
+
+picture {
+  display: block;
+}
+
+textarea {
+  resize: none;
+  height: 170px;
+}
+
+a, .button, button, input[type=submit], input[type=reset] {
+  cursor: pointer;
+}
+
+.button, button, input[type=submit], input[type=reset] {
+  padding: 12px 16px;
+  font-size: 16px;
+  color: #0018f0;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  transition: 0.5s all ease;
+  position: relative;
+  vertical-align: middle;
+  z-index: 0;
+  background: #fff;
+  text-align: center;
+  width: auto;
+  display: inline-block;
+  text-transform: uppercase;
+  min-width: 180px;
+  border: 2px solid #0018f0;
+  box-shadow: 4px 4px;
+  margin: 0 4px 4px 0;
+}
+.button:before, button:before, input[type=submit]:before, input[type=reset]:before {
+  content: "";
+  background: linear-gradient(45deg, #3754e6, #ff00eb);
+  width: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  transition: 0.5s all ease;
+  display: block;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+.button:hover, button:hover, input[type=submit]:hover, input[type=reset]:hover {
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0;
+  background: linear-gradient(45deg, #3754e6, #ff00eb);
+}
+.button:hover:before, button:hover:before, input[type=submit]:hover:before, input[type=reset]:hover:before {
+  width: 100%;
+}
+.button:active, .button:focus, button:active, button:focus, input[type=submit]:active, input[type=submit]:focus, input[type=reset]:active, input[type=reset]:focus {
+  outline: none;
+}
+
+.arrow-link {
+  position: relative;
+  color: #4747f3;
+}
+.arrow-link:before {
+  content: "";
+  background: #4747f3;
+  width: 25px;
+  height: 2px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  border-radius: 2px;
+  border-radius: 2px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+}
+.arrow-link:after {
+  content: "";
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #4747f3;
+  border-right: 2px solid #4747f3;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  vertical-align: middle;
+  margin: 0 0 0 25px;
+}
+.arrow-link:hover {
+  color: #0FA896;
+  transition: 0.7s;
+}
+.arrow-link:hover:before, .arrow-link:hover:after {
+  transition: 0.7s all ease;
+}
+.arrow-link:hover:before {
+  width: 28px;
+  background: #0FA896;
+}
+.arrow-link:hover:after {
+  margin: 0 0 0 32px;
+  border-color: #0FA896;
+}
+
+.button-wrap {
+  margin: 0 0 -32px;
+}
+.button-wrap .button {
+  margin: 0 16px 32px;
+}
+
+.hoverCursor:hover {
+  cursor: pointer;
+}
+
+/*------ Reset CSS Ends ------*/
+/*------ fonts ----------*/
+h1, .h1 {
+  font-size: 32px;
+  line-height: 1.4;
+}
+
+h2, .h2 {
+  font-size: 29px;
+  line-height: 1.4;
+}
+
+h3, .h3 {
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+h4, .h4 {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+h5, .h5 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+h6, .h6 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+address, caption, label, span, a, figcaption, textarea, input, li, p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.descriptionText p, .descriptionText li {
+  margin: 12px 0;
+}
+.descriptionText figure, .descriptionText ul, .descriptionText ol, .descriptionText .h1, .descriptionText .h2, .descriptionText .h3, .descriptionText .h4, .descriptionText .h5, .descriptionText .h6, .descriptionText form {
+  margin: 16px 0;
+}
+
+.upCase {
+  text-transform: uppercase;
+}
+
+/*--------- Displays ------------*/
+.dtab {
+  display: table;
+  width: 100%;
+}
+
+.dcell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.dgrid {
+  display: grid;
+}
+
+.dflex {
+  display: flex;
+}
+.dflex.wrap {
+  flex-wrap: wrap;
+}
+.dflex.dflex.wrapRev {
+  flex-wrap: wrap-reverse;
+}
+.dflex.vcenter {
+  align-items: center;
+}
+.dflex.spaceBetween {
+  justify-content: space-between;
+}
+
+.aligncenter > img {
+  margin: 0 auto;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.paddTb40 {
+  padding: 22px 0;
+}
+
+.paddTb64 {
+  padding: 32px 0;
+}
+
+.paddTb72 {
+  padding: 42px 0;
+}
+
+.paddTb100 {
+  padding: 50px 0;
+}
+
+/*--------- Displays Ends ------------*/
+/*-------------- Forms and Elements ---------------*/
+textarea, input, button, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*-- Gravity form css --*/
+/*-------------- Forms and Elements Ends ---------------*/
+/*---------- Grid System -------------*/
+.w100 {
+  max-width: 100%;
+  width: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.w33 {
+  width: 33.3333%;
+}
+
+.w25 {
+  width: 25%;
+}
+
+.wrapper {
+  max-width: 79vw;
+}
+
+/*---------- Grid System Ends -------------*/
+/*----- Reviews -----*/
+blockquote {
+  margin: 0;
+  padding: 22px;
+  border: 2px solid #f3f3f3;
+}
+
+.passform label {
+  display: block;
+}
+.passform input {
+  line-height: 1;
+  padding: 12px 14px;
+}
+.passform input[type=submit] {
+  min-width: 140px;
+}
+
+/*------------- Mobile Menu ----------------*/
+.menu-toggle {
+  background: transparent;
+  position: relative;
+  min-width: inherit;
+  margin: 0;
+  font-size: 0;
+  height: 24px;
+  width: 34px;
+  border: none;
+  box-shadow: none;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.menu-toggle:before, .menu-toggle:after {
+  content: "";
+  background: red;
+  width: 100%;
+  height: 4px;
+  display: block;
+  position: absolute;
+  left: 0;
+  transition: 0.5s ease transform;
+  border-radius: 10px;
+}
+.menu-toggle:hover i {
+  background: linear-gradient(45deg, red 80%, #fff 20%);
+}
+.menu-toggle:hover:before, .menu-toggle:hover:after {
+  background: linear-gradient(45deg, #fff 20%, red 80%);
+}
+.menu-toggle:before {
+  top: 0;
+}
+.menu-toggle:after {
+  bottom: 0;
+}
+.menu-toggle i {
+  background: red;
+  width: 100%;
+  height: 4px;
+  display: block;
+  border-radius: 10px;
+}
+.menu-toggle:hover {
+  background: transparent;
+}
+
+.main-navigation .menu {
+  max-width: 0;
+  width: 100%;
+  transition: 0.75s ease;
+  align-items: center;
+  background: #333;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  padding: 120px 0;
+  flex-wrap: wrap;
+  transition: max-width 0.75s;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.main-navigation .menu li {
+  width: 100%;
+  padding: 0 12px;
+}
+.main-navigation .nav-menu {
+  display: none;
+  opacity: 0;
+}
+.main-navigation.toggled .nav-menu {
+  display: block;
+  opacity: 1;
+}
+.main-navigation.toggled .menu {
+  max-width: 400px;
+  width: 100%;
+}
+.main-navigation.toggled .menu-toggle:before, .main-navigation.toggled .menu-toggle:after {
+  top: 50%;
+}
+.main-navigation.toggled .menu-toggle:before {
+  transform: rotate(-45deg);
+}
+.main-navigation.toggled .menu-toggle:after {
+  transform: rotate(45deg);
+}
+.main-navigation.toggled .menu-toggle i {
+  opacity: 0;
+}
+
+/*------------- Mobile Menu Ends ----------------*/
+.shead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  max-width: 100vw;
+  width: 100%;
+}
+
+.entry-footer {
+  @inclide flexDisplay;
+  gap: 18px;
+  row-gap: 0px;
+  /*
+  	Blog Comments are Enabled
+
+
+  */
+  /*
+
+  */
+}
+
+/* Blogs Listing Page */
+.blogWrap .blogs {
+  column-count: 2;
+  gap: 32px;
+  break-inside: avoid-column;
+}
+.blogWrap .blogs article {
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+}
+
+/*# sourceMappingURL=style.css.map */

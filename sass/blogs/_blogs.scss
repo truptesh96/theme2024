@@ -1,0 +1,26 @@
+.entry-footer { @inclide flexDisplay; gap: 18px; row-gap: 0px; 
+ 
+	/*
+		Blog Comments are Enabled
+		
+
+	*/
+
+	/*
+
+	*/
+
+}
+
+/* Blogs Listing Page */
+
+.blogWrap {
+	.blogs {
+		column-count: 2; gap: 32px; break-inside: avoid-column; 
+
+		article {
+			page-break-inside: avoid;
+			break-inside: avoid-column;	
+		}
+	}
+}
